@@ -30,8 +30,8 @@ const img = document.querySelector('img');
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
-	root.style.setProperty('--x', 0 + 'px');
-	root.style.setProperty('--y', 0 + 'px');
+	root.style.setProperty('--x', window.innerWidth / 2 + 'px');
+	root.style.setProperty('--y', window.innerHeight / 2 + 'px');
 
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
