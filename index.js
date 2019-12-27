@@ -30,10 +30,6 @@ const img = document.querySelector('img');
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
-	img.setAttribute(
-		'src',
-		'https://live.staticflickr.com/3337/3418293087_4a2d6a9a5a_b.jpg',
-	);
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
