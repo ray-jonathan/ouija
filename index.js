@@ -1,4 +1,4 @@
-function decimalAdjust(type, value, exp) {
+function decimalAdjust(type, value, exp = -1) {
 	// If the exp is undefined or zero...
 	if (typeof exp === 'undefined' || +exp === 0) {
 		return Math[type](value);
@@ -50,17 +50,16 @@ function requestT() {
 							root.style.getPropertyValue('--x').replace('px', ''),
 						);
 
-						root.style.setProperty('--x', xVal + x.textContent * 10 + 'px');
+						root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
 						// }
 						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
 						y.textContent = `${round10(e.acceleration.y)}`;
 						const yVal = Number(
 							root.style.getPropertyValue('--y').replace('px', ''),
 						);
-						root.style.setProperty('--y', yVal + y.textContent * 10 + 'px');
+						root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
 						// }
-						if (Math.abs(e.acceleration.z - parseFloat(z.textContent)) > 0.1)
-							z.textContent = `${round10(e.acceleration.z)}`;
+						z.textContent = `${round10(e.acceleration.z)}`;
 					});
 				}
 			})
