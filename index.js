@@ -17,7 +17,7 @@ function requestT() {
 				if (response == 'granted') {
 					window.addEventListener('devicemotion', e => {
 						// do something with e
-						if (Math.abs(e.acceleration.x - p.textContent) > 0.01)
+						if (Math.abs(e.acceleration.x - p.textContent) > 0.1)
 							p.textContent = `${e.acceleration.x}`;
 					});
 				}
