@@ -19,7 +19,9 @@ function decimalAdjust(type, value, exp) {
 
 // Decimal round
 const round10 = (value, exp) => decimalAdjust('round', value, exp);
-const p = document.querySelector('[data-target]');
+const x = document.querySelector('[data-target=x]');
+const y = document.querySelector('[data-target=y]');
+const z = document.querySelector('[data-target=z]');
 
 // if (location.protocol != 'https:') {
 // 	location.href =
@@ -37,8 +39,12 @@ function requestT() {
 				if (response == 'granted') {
 					window.addEventListener('devicemotion', e => {
 						// do something with e
-						if (Math.abs(e.acceleration.x - parseFloat(p.textContent)) > 0.1)
-							p.textContent = `${round10(e.acceleration.x)}`;
+						if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1)
+							x.textContent = `${round10(e.acceleration.x)}`;
+						if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1)
+							y.textContent = `${round10(e.acceleration.y)}`;
+						if (Math.abs(e.acceleration.z - parseFloat(z.textContent)) > 0.1)
+							z.textContent = `${round10(e.acceleration.z)}`;
 					});
 				}
 			})
