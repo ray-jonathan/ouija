@@ -30,6 +30,9 @@ const img = document.querySelector('img');
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
+	root.style.setProperty('--x', 0 + 'px');
+	root.style.setProperty('--y', 0 + 'px');
+
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
