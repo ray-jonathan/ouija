@@ -44,21 +44,21 @@ function requestT() {
 				if (response == 'granted') {
 					window.addEventListener('devicemotion', e => {
 						// do something with e
-						if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
-							x.textContent = `${round10(e.acceleration.x)}`;
-							const xVal = Number(
-								root.style.getPropertyValue('--x').replace('px', ''),
-							);
+						// if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
+						x.textContent = `${round10(e.acceleration.x)}`;
+						const xVal = Number(
+							root.style.getPropertyValue('--x').replace('px', ''),
+						);
 
-							root.style.setProperty('--x', xVal + x.textContent * 10 + 'px');
-						}
-						if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
-							y.textContent = `${round10(e.acceleration.y)}`;
-							const yVal = Number(
-								root.style.getPropertyValue('--y').replace('px', ''),
-							);
-							root.style.setProperty('--y', yVal + y.textContent * 10 + 'px');
-						}
+						root.style.setProperty('--x', xVal + x.textContent * 10 + 'px');
+						// }
+						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
+						y.textContent = `${round10(e.acceleration.y)}`;
+						const yVal = Number(
+							root.style.getPropertyValue('--y').replace('px', ''),
+						);
+						root.style.setProperty('--y', yVal + y.textContent * 10 + 'px');
+						// }
 						if (Math.abs(e.acceleration.z - parseFloat(z.textContent)) > 0.1)
 							z.textContent = `${round10(e.acceleration.z)}`;
 					});
