@@ -53,7 +53,7 @@ function requestT() {
 							const yVal = Number(
 								root.style.getPropertyValue('--y').replace('px', ''),
 							);
-							root.style.setProperty('--y', yVal - y.textContent * 10 + 'px');
+							root.style.setProperty('--y', yVal + y.textContent * 10 + 'px');
 						}
 						if (Math.abs(e.acceleration.z - parseFloat(z.textContent)) > 0.1)
 							z.textContent = `${round10(e.acceleration.z)}`;
