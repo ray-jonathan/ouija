@@ -18,9 +18,13 @@
 				alt="Ouija board"
 			/>
 		</div>
+		<div class="oculus">
+			<div class="eye-piece"></div>
+		</div>
 		<style>
 			body {
 				margin: 0;
+				position: relative;
 			}
 			:root {
 				--x: 0px;
@@ -30,10 +34,25 @@
 			.container {
 				width: 100vw;
 				transform: translateX(var(--x)) translateY(var(--y))
-					translateZ(var(--z)) scale(2);
+					translateZ(var(--z)) scale(3);
 			}
 			.container img {
 				width: 100%;
+			}
+			.oculus {
+				position: absolute;
+				width: 100vw;
+				height: 100vh;
+				background-color: black;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.eye-piece {
+				width: 5vw;
+				height: 5vw;
+				background-color: rgba(0, 0, 0, 0);
+				border-radius: 50%;
 			}
 		</style>
 	</body>
