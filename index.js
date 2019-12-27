@@ -17,10 +17,8 @@ function requestT() {
 				if (response == 'granted') {
 					window.addEventListener('devicemotion', e => {
 						// do something with e
-						p.textContent = `${e.acceleration.x}, 
-						${e.accelerationIncludingGravity.x}, 
-						${e.interval}
-						`;
+						if (Math.abs(e.acceleration.x - p.textContent) > 0.01)
+							p.textContent = `${e.acceleration.x}`;
 					});
 				}
 			})
