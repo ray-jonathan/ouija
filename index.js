@@ -31,7 +31,7 @@ const img = document.querySelector('img');
 // }
 function requestT() {
 	root.style.setProperty('--x', window.innerWidth / 2 + 'px');
-	root.style.setProperty('--y', window.innerHeight / 2 + 'px');
+	root.style.setProperty('--y', window.innerHeight / 4 + 'px');
 
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
