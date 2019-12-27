@@ -23,12 +23,17 @@ const x = document.querySelector('[data-target=x]');
 const y = document.querySelector('[data-target=y]');
 const z = document.querySelector('[data-target=z]');
 const root = document.documentElement;
+const img = document.querySelector('img');
 
 // if (location.protocol != 'https:') {
 // 	location.href =
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
+	img.setAttribute(
+		'src',
+		'https://live.staticflickr.com/3337/3418293087_4a2d6a9a5a_b.jpg',
+	);
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
