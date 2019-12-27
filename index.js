@@ -42,12 +42,17 @@ function requestT() {
 						// do something with e
 						if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
 							x.textContent = `${round10(e.acceleration.x)}`;
-							const xVal = root.style.getPropertyValue('--x');
+							const xVal = Number(
+								root.style.getPropertyValue('--x').replace('px', ''),
+							);
+
 							root.style.setProperty('--x', xVal + x.textContent * 10 + 'px');
 						}
 						if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
 							y.textContent = `${round10(e.acceleration.y)}`;
-							const yVal = root.style.getPropertyValue('--y');
+							const yVal = Number(
+								root.style.getPropertyValue('--y').replace('px', ''),
+							);
 							root.style.setProperty('--y', yVal + y.textContent * 10 + 'px');
 						}
 						if (Math.abs(e.acceleration.z - parseFloat(z.textContent)) > 0.1)
