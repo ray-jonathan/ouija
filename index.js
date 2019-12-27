@@ -17,7 +17,10 @@ function requestT() {
 				if (response == 'granted') {
 					window.addEventListener('devicemotion', e => {
 						// do something with e
-						p.textContent = `${e.acceleration.x}, \n ${e.accelerationIncludingGravity}`;
+						p.textContent = `${e.acceleration.x}, 
+						${e.accelerationIncludingGravity.x}, 
+						${e.interval}
+						`;
 					});
 				}
 			})
