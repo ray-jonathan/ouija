@@ -64,43 +64,48 @@ function requestT() {
 		// 		}
 		// 	})
 		// 	.catch(() => alert('You denied permission'));
-		navigator.permissions.query({ name: 'accelerometer' })
-.then(result => {
-	try{
+		navigator.permissions.query({ name: 'accelerometer' }).then(result => {
+			try {
+				if (result.state === 'denied') {
+					alert('Permission to use accelerometer sensor is denied.');
+					return;
+				}
 
-		if (result.state === 'denied') {
-			alert('Permission to use accelerometer sensor is denied.');
-			return;
-		}
-		let accelerometer = new Accelerometer({frequency: 60});
+				let accelerometer = new LinearAccelerationSensor({ frequency: 60 });
 
-accelerometer.addEventListener('reading', e => {
-  console.log("Acceleration along the X-axis " + accelerometer.x);
-  console.log("Acceleration along the Y-axis " + accelerometer.y);
-	console.log("Acceleration along the Z-axis " + accelerometer.z);
-							x.textContent = `${round10(accelerometer.x)}`;
-						const xVal = Number(
-							root.style.getPropertyValue('--x').replace('px', ''),
-						);
+				accelerometer.addEventListener('reading', e => {
+					console.log(
+						'Linear acceleration along the X-axis ' + accelerometer.x,
+					);
+					console.log(
+						'Linear acceleration along the Y-axis ' + accelerometer.y,
+					);
+					console.log(
+						'Linear acceleration along the Z-axis ' + accelerometer.z,
+					);
 
-						root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
-						// }
-						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
-						y.textContent = `${round10(accelerometer.y)}`;
-						const yVal = Number(
-							root.style.getPropertyValue('--y').replace('px', ''),
-						);
-						root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
-						// }
-						z.textContent = `${round10(accelerometer.z)}`;
+					x.textContent = `${round10(accelerometer.x)}`;
+					const xVal = Number(
+						root.style.getPropertyValue('--x').replace('px', ''),
+					);
 
-});
-accelerometer.start();
-		
-	}
-	
-	catch(err) {
-		alert(err);
+					root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
+					// }
+					// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
+					y.textContent = `${round10(accelerometer.y)}`;
+					const yVal = Number(
+						root.style.getPropertyValue('--y').replace('px', ''),
+					);
+					root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
+					// }
+					z.textContent = `${round10(accelerometer.z)}`;
+				});
+				accelerometer.start();
+			} catch (err) {
+				alert(err);
+			}
+		});
 	}
 }
+
 document.getElementById('request').onclick = requestT;
