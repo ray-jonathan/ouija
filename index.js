@@ -71,7 +71,7 @@ function requestT() {
 					return;
 				}
 
-				let accelerometer = new LinearAccelerationSensor({ frequency: 60 });
+				let accelerometer = new LinearAccelerationSensor({ frequency: 3 });
 
 				accelerometer.addEventListener('reading', e => {
 					console.log(
