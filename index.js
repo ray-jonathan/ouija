@@ -37,52 +37,15 @@ function requestT() {
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
 	) {
-		// // alert('enter');
-		// DeviceMotionEvent.requestPermission()
-		// 	.then(response => {
-		// 		alert('resp' + response);
-		// 		if (response == 'granted') {
-		// 			window.addEventListener('devicemotion', e => {
-		// 				// do something with e
-		// 				// if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
-		// 				x.textContent = `${round10(e.acceleration.x)}`;
-		// 				const xVal = Number(
-		// 					root.style.getPropertyValue('--x').replace('px', ''),
-		// 				);
-
-		// 				root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
-		// 				// }
-		// 				// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
-		// 				y.textContent = `${round10(e.acceleration.y)}`;
-		// 				const yVal = Number(
-		// 					root.style.getPropertyValue('--y').replace('px', ''),
-		// 				);
-		// 				root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
-		// 				// }
-		// 				z.textContent = `${round10(e.acceleration.z)}`;
-		// 			});
-		// 		}
-		// 	})
-		// 	.catch(() => alert('You denied permission'));
-		navigator.permissions.query({ name: 'accelerometer' })
-.then(result => {
-	try{
-
-		if (result.state === 'denied') {
-			alert('Permission to use accelerometer sensor is denied.');
-			return;
-		}
-
-
-
-		
-		let accelerometer = new Accelerometer({frequency: 60});
-
-accelerometer.addEventListener('reading', e => {
-  console.log("Acceleration along the X-axis " + accelerometer.x);
-  console.log("Acceleration along the Y-axis " + accelerometer.y);
-	console.log("Acceleration along the Z-axis " + accelerometer.z);
-							x.textContent = `${round10(accelerometer.x)}`;
+		// alert('enter');
+		DeviceMotionEvent.requestPermission()
+			.then(response => {
+				alert('resp' + response);
+				if (response == 'granted') {
+					window.addEventListener('devicemotion', e => {
+						// do something with e
+						// if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
+						x.textContent = `${round10(e.acceleration.x)}`;
 						const xVal = Number(
 							root.style.getPropertyValue('--x').replace('px', ''),
 						);
@@ -90,21 +53,19 @@ accelerometer.addEventListener('reading', e => {
 						root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
 						// }
 						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
-						y.textContent = `${round10(accelerometer.y)}`;
+						y.textContent = `${round10(e.acceleration.y)}`;
 						const yVal = Number(
 							root.style.getPropertyValue('--y').replace('px', ''),
 						);
 						root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
 						// }
-						z.textContent = `${round10(accelerometer.z)}`;
-
-});
-accelerometer.start();
-		
-	}
-	
-	catch(err) {
-		alert(err);
+						z.textContent = `${round10(e.acceleration.z)}`;
+					});
+				}
+			})
+			.catch(() => alert('You denied permission'));
+	} else {
+		alert('DeviceMotionEvent is not defined');
 	}
 }
 document.getElementById('request').onclick = requestT;
