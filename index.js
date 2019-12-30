@@ -89,14 +89,14 @@ function requestT() {
 						root.style.getPropertyValue('--x').replace('px', ''),
 					);
 
-					root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
+					root.style.setProperty('--x', xVal + x.textContent * 2.5 + 'px');
 					// }
 					// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
 					y.textContent = `${round10(accelerometer.y)}`;
 					const yVal = Number(
 						root.style.getPropertyValue('--y').replace('px', ''),
 					);
-					root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
+					root.style.setProperty('--y', yVal + y.textContent * 2.5 + 'px');
 					// }
 					z.textContent = `${round10(accelerometer.z)}`;
 				});
