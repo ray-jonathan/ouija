@@ -63,8 +63,8 @@ function requestT() {
 							);
 							newX = round10(newX + xDisplacement);
 							newY = round10(newY + yDisplacement);
-							x.textContent = newX;
-							y.textContent = newY;
+							x.textContent = rawX;
+							y.textContent = rawY;
 							root.style.setProperty('--x', newX + 'px');
 							root.style.setProperty('--y', newY + 'px');
 							start = performance.now();
