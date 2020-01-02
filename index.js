@@ -24,15 +24,15 @@ const y = document.querySelector('[data-target=y]');
 const z = document.querySelector('[data-target=z]');
 const root = document.documentElement;
 const img = document.querySelector('img');
-
+let newX = window.innerWidth / 2;
+let newY = window.innerHeight / 4;
+root.style.setProperty('--x', newX + 'px');
+root.style.setProperty('--y', newY + 'px');
 // if (location.protocol != 'https:') {
 // 	location.href =
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
-	root.style.setProperty('--x', window.innerWidth / 2 + 'px');
-	root.style.setProperty('--y', window.innerHeight / 4 + 'px');
-
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
