@@ -49,16 +49,16 @@ function requestT() {
 						'devicemotion',
 						({ acceleration: { x: rawX, y: rawY } }) => {
 							const start = performance.now();
-							vX = round10(rawX * ((performance.now() - start) / 100));
-							vY = round10(rawY * ((performance.now() - start) / 100));
+							vX = round10(rawX * ((performance.now() - start) / 1000));
+							vY = round10(rawY * ((performance.now() - start) / 1000));
 							const xDisplacement = displace(
 								round10(rawX),
-								(performance.now() - start) / 100,
+								(performance.now() - start) / 1000,
 								vX,
 							);
 							const yDisplacement = displace(
 								round10(rawY),
-								(performance.now() - start) / 100,
+								(performance.now() - start) / 1000,
 								vY,
 							);
 							newX = newX + xDisplacement;
@@ -76,5 +76,5 @@ function requestT() {
 		alert('DeviceMotionEvent is not defined');
 	}
 }
-// document.body.style.backgroundColor = '#FF0000';
+document.body.style.backgroundColor = '#0000FF';
 document.getElementById('request').onclick = requestT;
