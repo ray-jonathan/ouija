@@ -39,7 +39,6 @@ let vY = 0;
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
-	const start = performance.now();
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
@@ -52,6 +51,7 @@ function requestT() {
 					window.addEventListener(
 						'devicemotion',
 						({ acceleration: { x: rawX, y: rawY } }) => {
+							const start = performance.now();
 							vX = round10(rawX * ((performance.now() - start) / 1000));
 							vY = round10(rawY * ((performance.now() - start) / 1000));
 							const xDisplacement = displace(
