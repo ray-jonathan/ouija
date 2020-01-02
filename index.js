@@ -73,3 +73,4 @@ function requestT() {
 	}
 }
 document.getElementById('request').onclick = requestT;
+document.body.style.backgroundColor = '#bad';
