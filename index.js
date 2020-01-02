@@ -34,9 +34,9 @@ root.style.setProperty('--x', newX + 'px');
 root.style.setProperty('--y', newY + 'px');
 let vX = 0;
 let vY = 0;
-let start = performance.now();
 
 function requestT() {
+	let start = performance.now();
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
@@ -63,8 +63,8 @@ function requestT() {
 							);
 							newX = round10(newX + xDisplacement);
 							newY = round10(newY + yDisplacement);
-							x.textContent = rawX;
-							y.textContent = rawY;
+							x.textContent = newX;
+							y.textContent = newY;
 							root.style.setProperty('--x', newX + 'px');
 							root.style.setProperty('--y', newY + 'px');
 							start = performance.now();
@@ -77,5 +77,5 @@ function requestT() {
 		alert('DeviceMotionEvent is not defined');
 	}
 }
-document.body.style.backgroundColor = '#F0F0F0';
+document.body.style.backgroundColor = '#0FFFF0';
 document.getElementById('request').onclick = requestT;
