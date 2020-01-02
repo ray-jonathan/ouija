@@ -23,9 +23,7 @@ function displace(a, t, v = 0) {
 
 // Decimal round
 const round10 = (value, exp) => decimalAdjust('round', value, exp);
-const x = document.querySelector('[data-target=x]');
-const y = document.querySelector('[data-target=y]');
-const z = document.querySelector('[data-target=z]');
+
 const root = document.documentElement;
 const img = document.querySelector('img');
 let newX = window.innerWidth / 2;
@@ -34,10 +32,7 @@ root.style.setProperty('--x', newX + 'px');
 root.style.setProperty('--y', newY + 'px');
 let vX = 0;
 let vY = 0;
-// if (location.protocol != 'https:') {
-// 	location.href =
-// 		'https:' + window.location.href.substring(window.location.protocol.length);
-// }
+
 function requestT() {
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
@@ -78,24 +73,3 @@ function requestT() {
 	}
 }
 document.getElementById('request').onclick = requestT;
-
-// // do something with e
-// // if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
-// 	x.textContent = `${round10(e.acceleration.x)}`;
-// 	const xVal = parseFloat(
-// 		root.style.getPropertyValue('--x').replace('px', ''),
-// 	);
-// 	const stopX = (performance.now() - start) / 1000;
-// 	const newX = xVal + parseFloat(x.textContent) * stopX * 5;
-// 	root.style.setProperty('--x', newX + 'px');
-// 	// }
-// 	// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
-// 	y.textContent = `${round10(e.acceleration.y)}`;
-// 	const yVal = parseFloat(
-// 		root.style.getPropertyValue('--y').replace('px', ''),
-// 	);
-// 	const stopY = ((performance.now() - start) * stop) / 1000;
-// 	const newY = yVal + parseFloat(y.textContent) * stopY * 5;
-// 	root.style.setProperty('--x', newY + 'px');
-// 	// }
-// 	z.textContent = `${round10(e.acceleration.z)}`;
