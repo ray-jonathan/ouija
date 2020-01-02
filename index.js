@@ -34,6 +34,7 @@ root.style.setProperty('--x', newX + 'px');
 root.style.setProperty('--y', newY + 'px');
 let vX = 0;
 let vY = 0;
+let start = performance.now();
 
 function requestT() {
 	if (
@@ -48,7 +49,6 @@ function requestT() {
 					window.addEventListener(
 						'devicemotion',
 						({ acceleration: { x: rawX, y: rawY } }) => {
-							const start = performance.now();
 							vX = round10(rawX * ((performance.now() - start) / 1000));
 							vY = round10(rawY * ((performance.now() - start) / 1000));
 							const xDisplacement = displace(
@@ -61,12 +61,13 @@ function requestT() {
 								(performance.now() - start) / 1000,
 								vY,
 							);
-							newX = newX + xDisplacement;
-							newY = newY + yDisplacement;
+							newX = round10(newX + xDisplacement);
+							newY = round10(newY + yDisplacement);
 							x.textContent = newX;
 							y.textContent = newY;
 							root.style.setProperty('--x', newX + 'px');
 							root.style.setProperty('--y', newY + 'px');
+							start = performance.now();
 						},
 					);
 				}
@@ -76,5 +77,5 @@ function requestT() {
 		alert('DeviceMotionEvent is not defined');
 	}
 }
-document.body.style.backgroundColor = '#0000FF';
+document.body.style.backgroundColor = '#FFF';
 document.getElementById('request').onclick = requestT;
