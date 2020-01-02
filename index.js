@@ -63,8 +63,8 @@ function requestT() {
 							);
 							newX = newX + xDisplacement;
 							newY = newY + yDisplacement;
-							x.textContent = 1;
-							y.textContent = 1;
+							x.textContent = newX;
+							y.textContent = newY;
 							root.style.setProperty('--x', newX + 'px');
 							root.style.setProperty('--y', newY + 'px');
 						},
@@ -76,5 +76,5 @@ function requestT() {
 		alert('DeviceMotionEvent is not defined');
 	}
 }
-document.body.style.backgroundColor = '#FF0000';
+// document.body.style.backgroundColor = '#FF0000';
 document.getElementById('request').onclick = requestT;
