@@ -46,18 +46,19 @@ function requestT() {
 						// do something with e
 						// if (Math.abs(e.acceleration.x - parseFloat(x.textContent)) > 0.1) {
 						x.textContent = `${round10(e.acceleration.x)}`;
-						const xVal = Number(
+						const xVal = parseFloat(
 							root.style.getPropertyValue('--x').replace('px', ''),
 						);
-
-						root.style.setProperty('--x', xVal + x.textContent * 5 + 'px');
+						const newX = xVal + parseFloat(x.textContent) * 5;
+						root.style.setProperty('--x', newX + 'px');
 						// }
 						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
 						y.textContent = `${round10(e.acceleration.y)}`;
-						const yVal = Number(
+						const yVal = parseFloat(
 							root.style.getPropertyValue('--y').replace('px', ''),
 						);
-						root.style.setProperty('--y', yVal + y.textContent * 5 + 'px');
+						const newY = yVal + parseFloat(y.textContent) * 5;
+						root.style.setProperty('--x', newY + 'px');
 						// }
 						z.textContent = `${round10(e.acceleration.z)}`;
 					});
