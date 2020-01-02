@@ -76,4 +76,5 @@ function requestT() {
 		alert('DeviceMotionEvent is not defined');
 	}
 }
+document.body.style.backgroundColor = '#FF0000';
 document.getElementById('request').onclick = requestT;
