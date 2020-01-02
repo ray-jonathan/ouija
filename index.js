@@ -26,6 +26,8 @@ const round10 = (value, exp) => decimalAdjust('round', value, exp);
 
 const root = document.documentElement;
 const img = document.querySelector('img');
+const x = document.querySelector('[data-target="x"]');
+const y = document.querySelector('[data-target="y"]');
 let newX = window.innerWidth / 2;
 let newY = window.innerHeight / 4;
 root.style.setProperty('--x', newX + 'px');
@@ -61,6 +63,8 @@ function requestT() {
 							);
 							newX = newX + xDisplacement;
 							newY = newY + yDisplacement;
+							x.textContent = 1;
+							y.textContent = 1;
 							root.style.setProperty('--x', newX + 'px');
 							root.style.setProperty('--y', newY + 'px');
 						},
