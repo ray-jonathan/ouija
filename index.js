@@ -59,8 +59,8 @@ function requestT() {
 						const yVal = parseFloat(
 							root.style.getPropertyValue('--y').replace('px', ''),
 						);
-						const stopY = ((performance.now() - start) * stopY) / 1000;
-						const newY = yVal + parseFloat(y.textContent) * 5;
+						const stopY = ((performance.now() - start) * stop) / 1000;
+						const newY = yVal + parseFloat(y.textContent) * stopY * 5;
 						root.style.setProperty('--x', newY + 'px');
 						// }
 						z.textContent = `${round10(e.acceleration.z)}`;
