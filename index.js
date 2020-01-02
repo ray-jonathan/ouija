@@ -33,6 +33,7 @@ root.style.setProperty('--y', newY + 'px');
 // 		'https:' + window.location.href.substring(window.location.protocol.length);
 // }
 function requestT() {
+	const start = performance.now();
 	if (
 		typeof DeviceMotionEvent !== 'undefined' &&
 		typeof DeviceMotionEvent.requestPermission === 'function'
@@ -49,7 +50,8 @@ function requestT() {
 						const xVal = parseFloat(
 							root.style.getPropertyValue('--x').replace('px', ''),
 						);
-						const newX = xVal + parseFloat(x.textContent) * 5;
+						const stopX = (performance.now() - start) / 1000;
+						const newX = xVal + parseFloat(x.textContent) * stopX * 5;
 						root.style.setProperty('--x', newX + 'px');
 						// }
 						// if (Math.abs(e.acceleration.y - parseFloat(y.textContent)) > 0.1) {
@@ -57,6 +59,7 @@ function requestT() {
 						const yVal = parseFloat(
 							root.style.getPropertyValue('--y').replace('px', ''),
 						);
+						const stopY = ((performance.now() - start) * stopY) / 1000;
 						const newY = yVal + parseFloat(y.textContent) * 5;
 						root.style.setProperty('--x', newY + 'px');
 						// }
